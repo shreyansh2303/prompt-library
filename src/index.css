@@ -51,16 +51,21 @@ button:active {
 }
 
 /* The Text Input Area */
+/* The Text Input Area */
 textarea {
   background-color: #000;
-  color: #39ff14; /* Hacker Green */
+  color: #39ff14; 
   border: 2px solid #39ff14;
   width: 100%;
   padding: 15px;
-  font-family: 'VT323', monospace;
-  font-size: 22px;
+  
+  /* --- NEW FONT SETTINGS --- */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 18px; /* Slightly smaller because standard fonts are wider than pixel fonts */
+  line-height: 1.5; /* Adds breathing room between lines */
+  
   box-shadow: inset 0px 0px 10px rgba(57, 255, 20, 0.1);
-  box-sizing: border-box; /* Stops it from overflowing the screen */
+  box-sizing: border-box; 
   resize: vertical;
 }
 
@@ -220,6 +225,11 @@ input:focus {
 .prompt-content {
   flex-grow: 1;
   margin-bottom: 15px;
+  
+  /* --- NEW FONT SETTINGS --- */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 .prompt-actions {
