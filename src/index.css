@@ -167,18 +167,21 @@ input:focus {
 }
 
 /* Full-screen editor overlay */
+/* Full-screen editor overlay */
 .full-screen-editor {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100vh; /* Fallback for older browsers */
+  height: 100dvh; /* THE FIX: Dynamic viewport height for mobile */
   background-color: #08080c;
   z-index: 200;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  overflow-y: auto; /* Allows scrolling if the phone keyboard takes up too much room */
 }
 
 .editor-header {
