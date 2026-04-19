@@ -6,8 +6,6 @@ export default function Dashboard({ session }) {
   const [currentText, setCurrentText] = useState('')
   const [isEditing, setIsEditing] = useState(false)
   const [editId, setEditId] = useState(null)
-  
-  // NEW STATE: Tracks the ID of the prompt that was just copied
   const [copiedId, setCopiedId] = useState(null)
 
   useEffect(() => {
@@ -66,16 +64,11 @@ export default function Dashboard({ session }) {
     }
   }
 
-  // NEW: The Copy Function
   async function handleCopy(id, text) {
     try {
-      // Write the text to the system clipboard
       await navigator.clipboard.writeText(text)
-      
-      // Set the copied state to trigger the "COPIED!" UI change
       setCopiedId(id)
       
-      // Reset the button back to "COPY" after 2 seconds
       setTimeout(() => {
         setCopiedId(null)
       }, 2000)
@@ -154,12 +147,10 @@ export default function Dashboard({ session }) {
                   </div>
                   
                   <div className="prompt-actions">
-                    {/* NEW: The Copy Button */}
                     <button 
                       className="btn-small btn-copy" 
                       onClick={() => handleCopy(prompt.id, prompt.content)}
                     >
-                      {/* If this specific prompt's ID matches the state, show 'COPIED!', otherwise 'COPY' */}
                       {copiedId === prompt.id ? '> COPIED! <' : 'COPY'}
                     </button>
 
