@@ -1,0 +1,271 @@
+/* Import a retro pixel font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+  background-color: #08080c; /* Super dark, almost black */
+  color: #00ffff; /* Neon Cyan */
+  font-family: 'VT323', monospace;
+  font-size: 24px;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Main wrapper */
+.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Headings */
+h2, h3 {
+  color: #ffeb3b; /* Neon Yellow */
+  text-shadow: 3px 3px 0px #ff0055; /* Pixel offset shadow */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Buttons - The classic pixel arcade button */
+button {
+  background-color: #000;
+  color: #ff00ff; /* Neon Pink */
+  border: 2px solid #ff00ff;
+  padding: 10px 20px;
+  font-family: 'VT323', monospace;
+  font-size: 22px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0px #ff00ff; /* Solid pixel shadow */
+  transition: all 0.1s ease-in-out;
+}
+
+button:hover {
+  background-color: #ff00ff;
+  color: #000;
+  box-shadow: 0px 0px 15px #ff00ff; /* Neon glow on hover */
+  transform: translate(2px, 2px); /* Pushes the button down slightly */
+}
+
+button:active {
+  box-shadow: 0px 0px 0px #ff00ff; /* Flattens the shadow when clicked */
+  transform: translate(4px, 4px);
+}
+
+/* The Text Input Area */
+textarea {
+  background-color: #000;
+  color: #39ff14; /* Hacker Green */
+  border: 2px solid #39ff14;
+  width: 100%;
+  padding: 15px;
+  font-family: 'VT323', monospace;
+  font-size: 22px;
+  box-shadow: inset 0px 0px 10px rgba(57, 255, 20, 0.1);
+  box-sizing: border-box; /* Stops it from overflowing the screen */
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 15px #39ff14, inset 0px 0px 10px rgba(57, 255, 20, 0.3);
+}
+
+textarea::placeholder {
+  color: #1a7a0b; /* Dimmer green for the placeholder text */
+}
+
+/* The Saved Prompt Cards */
+.prompt-card {
+  padding: 15px;
+  border: 2px solid #00ffff; /* Cyan border */
+  background-color: #0a0a14;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 0px #00ffff; /* Solid pixel shadow */
+  color: #e0e0e0;
+  white-space: pre-wrap; /* Keeps your line breaks intact */
+}
+
+/* Tweaking the Supabase Auth UI to match */
+.supabase-auth-ui_ui-message {
+  font-family: 'VT323', monospace;
+}
+
+/* --- SUPABASE LOGIN UI FIXES --- */
+
+/* Force the input fields to match our hacker green text area */
+input {
+  background-color: #000 !important;
+  color: #39ff14 !important; /* Hacker Green */
+  border: 2px solid #39ff14 !important;
+  padding: 12px !important;
+  font-family: 'VT323', monospace !important;
+  font-size: 22px !important;
+  box-shadow: inset 0px 0px 10px rgba(57, 255, 20, 0.1) !important;
+  border-radius: 0 !important; /* Removes modern rounded corners */
+}
+
+input:focus {
+  outline: none !important;
+  box-shadow: 0 0 15px #39ff14, inset 0px 0px 10px rgba(57, 255, 20, 0.3) !important;
+}
+
+/* Force the labels (like "Email address") to match our neon yellow headings */
+.supabase-auth-ui_ui-label {
+  color: #ffeb3b !important;
+  font-family: 'VT323', monospace !important;
+  font-size: 20px !important;
+  text-transform: uppercase !important;
+}
+
+/* Make the Supabase Sign In button match our pink arcade buttons */
+.supabase-auth-ui_ui-button {
+  background-color: #000 !important;
+  color: #ff00ff !important;
+  border: 2px solid #ff00ff !important;
+  font-family: 'VT323', monospace !important;
+  font-size: 22px !important;
+  text-transform: uppercase !important;
+  box-shadow: 4px 4px 0px #ff00ff !important;
+  border-radius: 0 !important;
+  transition: all 0.1s ease-in-out !important;
+}
+
+.supabase-auth-ui_ui-button:hover {
+  background-color: #ff00ff !important;
+  color: #000 !important;
+  box-shadow: 0px 0px 15px #ff00ff !important;
+  transform: translate(2px, 2px) !important;
+}
+
+/* --- MOBILE UI UPDATES --- */
+
+/* Add extra padding to the bottom of the container so the fixed bar doesn't hide the last prompt */
+.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 90px; 
+}
+
+/* The fixed bar at the bottom of the screen */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #08080c;
+  padding: 15px 20px;
+  border-top: 2px solid #00ffff;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  z-index: 100;
+  box-shadow: 0px -5px 15px rgba(0, 255, 255, 0.1); /* Subtle upward glow */
+}
+
+.bottom-bar button {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* Full-screen editor overlay */
+.full-screen-editor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #08080c;
+  z-index: 200;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Make the text area take up the remaining screen space */
+.full-screen-editor textarea {
+  flex-grow: 1;
+  margin-bottom: 20px;
+  resize: none; /* Disables the manual drag-to-resize handle */
+}
+
+/* A secondary button style for canceling */
+.btn-cancel {
+  background-color: #000;
+  color: #ff3333; /* Neon Red */
+  border-color: #ff3333;
+  box-shadow: 4px 4px 0px #ff3333;
+}
+
+.btn-cancel:hover {
+  background-color: #ff3333;
+  box-shadow: 0px 0px 15px #ff3333;
+}
+
+.btn-cancel:active {
+  box-shadow: 0px 0px 0px #ff3333;
+}
+
+/* --- PROMPT CARD ACTIONS --- */
+
+.prompt-content {
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+.prompt-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px dashed rgba(0, 255, 255, 0.3); /* Faint cyan dashed line */
+  padding-top: 15px;
+}
+
+/* Smaller buttons for the cards */
+.btn-small {
+  font-size: 16px !important;
+  padding: 5px 10px !important;
+  box-shadow: 2px 2px 0px #ff00ff !important;
+}
+
+.btn-small:hover {
+  transform: translate(1px, 1px) !important;
+}
+
+.btn-small:active {
+  box-shadow: 0px 0px 0px #ff00ff !important;
+  transform: translate(2px, 2px) !important;
+}
+
+/* Specific style for the delete button */
+.btn-del {
+  color: #ff3333 !important;
+  border-color: #ff3333 !important;
+  box-shadow: 2px 2px 0px #ff3333 !important;
+}
+
+.btn-del:hover {
+  background-color: #ff3333 !important;
+  color: #000 !important;
+  box-shadow: 0px 0px 10px #ff3333 !important;
+}
+
+/* Specific style for the copy button */
+.btn-copy {
+  color: #ffeb3b !important; /* Neon Yellow */
+  border-color: #ffeb3b !important;
+  box-shadow: 2px 2px 0px #ffeb3b !important;
+  margin-right: auto; /* Pushes it to the far left side of the action bar */
+}
+
+.btn-copy:hover {
+  background-color: #ffeb3b !important;
+  color: #000 !important;
+  box-shadow: 0px 0px 10px #ffeb3b !important;
+}
